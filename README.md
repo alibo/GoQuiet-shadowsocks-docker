@@ -2,6 +2,9 @@
 A Docker image for [Shadowsocks](https://github.com/shadowsocks) over [GoQuiet](https://github.com/cbeuw/GoQuiet/)
 
 
+[![Docker Automated build](https://img.shields.io/docker/automated/alibo/goquiet-shadowsocks-docker.svg?style=flat-square)](https://hub.docker.com/r/alibo/goquiet-shadowsocks-docker/)
+
+
 ## What is GoQuiet?
 
 >A shadowsocks plugin that obfuscates the traffic as normal HTTPS traffic and disguises the proxy server as a normal webserver.
@@ -30,7 +33,7 @@ docker run -d --restart=always \
     -e "GQ_WEBSERVER_ADDRESS=1.1.1.1:443" \
     -e "GQ_KEY=exampleconftest" \
     -e "GQ_FAST_OPEN=true" \
-    -p 443:443 -p 443:443/udp --name goquiet-node-1 alibo/goquiet-shadowsocks-docker:server-plugin
+    -p 443:443 -p 443:443/udp --name goquiet-node-1 alibo/goquiet-shadowsocks-docker:server
 ```
 
 
@@ -79,7 +82,7 @@ docker run -d --restart=always \
     -e "SS_PASSWORD=shadowsocks_123456" \
     -e "SS_METHOD=chacha20-ietf-poly1305" \
     -e "SS_TIMEOUT=600" \
-    -p 1080:1080 --name goquiet-client-plugin-node-1 alibo/goquiet-shadowsocks-docker:client-plugin
+    -p 1080:1080 --name goquiet-client-plugin-node-1 alibo/goquiet-shadowsocks-docker:client
 ```
 
 ##### Standalone
