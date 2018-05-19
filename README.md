@@ -114,3 +114,6 @@ https://github.com/cbeuw/GoQuiet-android/releases
 - [Shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)
 - [hangim/shadowsocks-docker](https://github.com/hangim/shadowsocks-docker)
 
+## License
+
+MIT
