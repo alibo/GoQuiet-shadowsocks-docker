@@ -87,6 +87,9 @@ docker run -d --restart=always \
 
 ##### Standalone
 
+**Note: It doesn't work! Apparently he has removed my commit in this PR!**
+https://github.com/cbeuw/GoQuiet/pull/34
+
 ```bash
 docker run -d --restart=always \
 	-e "GQ_SERVER_NAME=www.bing.com" \
