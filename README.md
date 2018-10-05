@@ -32,7 +32,7 @@ docker run -d --restart=always \
     -e "SS_TIMEOUT=600" \
     -e "GQ_WEBSERVER_ADDRESS=1.1.1.1:443" \
     -e "GQ_KEY=exampleconftest" \
-    -e "GQ_FAST_OPEN=true" \
+    -e "GQ_FAST_OPEN=false" \
     -p 443:443 -p 443:443/udp --name goquiet-node-1 alibo/goquiet-shadowsocks-docker:server
 ```
 
@@ -43,7 +43,7 @@ docker run -d --restart=always \
 docker run -d --restart=always \
     -e "GQ_WEBSERVER_ADDRESS=1.1.1.1:443" \
     -e "GQ_KEY=exampleconftest" \
-    -e "GQ_FAST_OPEN=true" \
+    -e "GQ_FAST_OPEN=false" \
     -e "GQ_SS_HOST=<shadowsocks-ip>" \
     -e "GQ_SS_PORT=8388" \
     -e "GQ_HOST=0.0.0.0" \
@@ -72,7 +72,7 @@ docker run -d --restart=always \
 docker run -d --restart=always \
     -e "GQ_SERVER_NAME=www.bing.com" \
     -e "GQ_KEY=exampleconftest" \
-    -e "GQ_FAST_OPEN=true" \
+    -e "GQ_FAST_OPEN=false" \
     -e "GQ_BROWSER=chrome" \
     -e "GQ_TICKET_TIME_HINT=3600" \
     -e "SS_SERVER_ADDRESS=<server-ip>" \
@@ -91,7 +91,7 @@ docker run -d --restart=always \
 docker run -d --restart=always \
 	-e "GQ_SERVER_NAME=www.bing.com" \
 	-e "GQ_KEY=exampleconftest" \
-	-e "GQ_FAST_OPEN=true" \
+	-e "GQ_FAST_OPEN=false" \
 	-e "GQ_BROWSER=chrome" \
 	-e "GQ_TICKET_TIME_HINT=3600" \
 	-e "GQ_LOCAL_PORT=1984" \
