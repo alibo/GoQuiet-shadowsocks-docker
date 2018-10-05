@@ -87,9 +87,18 @@ docker run -d --restart=always \
 
 ##### Standalone
 
-Waiting for the PR: https://github.com/cbeuw/GoQuiet/pull/34
-
-
+```bash
+docker run -d --restart=always \
+	-e "GQ_SERVER_NAME=www.bing.com" \
+	-e "GQ_KEY=exampleconftest" \
+	-e "GQ_FAST_OPEN=true" \
+	-e "GQ_BROWSER=chrome" \
+	-e "GQ_TICKET_TIME_HINT=3600" \
+	-e "GQ_LOCAL_PORT=1984" \
+	-e "GQ_SERVER_ADDRESS=127.0.0.1" \
+	-e "GQ_SERVER_PORT=443" \
+    -p 1984:1984 --name goquiet-client-standalone-node-1 alibo/goquiet-shadowsocks-docker:client-standalone
+```
 
 ### Windows
 
