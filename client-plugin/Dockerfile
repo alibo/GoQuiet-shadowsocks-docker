@@ -15,7 +15,7 @@ ENV SS_LOCAL_PORT=1080
 
 RUN \
     apk add --no-cache wget \
-    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux32-$GOQUIET_VER \
+    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux-arm64-$GOQUIET_VER \
     && chmod +x /usr/local/bin/gq-client
 
 RUN \

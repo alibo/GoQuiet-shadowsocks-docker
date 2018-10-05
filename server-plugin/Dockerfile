@@ -8,7 +8,7 @@ ENV GQ_FAST_OPEN=true
 
 RUN \
     apk add --no-cache wget \
-    && wget -O /usr/local/bin/gq-server https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-server-linux32-$GOQUIET_VER \
+    && wget -O /usr/local/bin/gq-server https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-server-linux-amd64-$GOQUIET_VER \
     && chmod +x /usr/local/bin/gq-server
 
 RUN \
