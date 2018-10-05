@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ARG GOQUIET_VER=1.1.2
+ARG GOQUIET_VER=1.2.1
 
 ENV GQ_SERVER_NAME=www.bing.com
 ENV GQ_KEY=exampleconftest
@@ -24,10 +24,7 @@ RUN \
     \"Browser\":\"$GQ_BROWSER\",\n\
     \"Key\":\"$GQ_KEY\",\n\
     \"FastOpen\":$GQ_FAST_OPEN\n\
-}"\
-> /etc/goquiet/gqclient.json
+    }"\
+    > /etc/goquiet/gqclient.json
 
-
-# it doesn't work right now!
-# we should bind to 0.0.0.0, see PR: https://github.com/cbeuw/GoQuiet/pull/34
-ENTRYPOINT /usr/local/bin/gq-client -s $GQ_SERVER_ADDRESS -p $GQ_SERVER_PORT -l $GQ_LOCAL_PORT -c /etc/goquiet/gqclient.json
+ENTRYPOINT /usr/local/bin/gq-client -s $GQ_SERVER_ADDRESS -b "0.0.0.0" -p $GQ_SERVER_PORT -l $GQ_LOCAL_PORT -c /etc/goquiet/gqclient.json

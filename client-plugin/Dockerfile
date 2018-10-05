@@ -1,6 +1,6 @@
-FROM imhang/shadowsocks-docker
+FROM imhang/shadowsocks-docker:latest
 
-ARG GOQUIET_VER=1.1.2
+ARG GOQUIET_VER=1.2.1
 
 ENV GQ_SERVER_NAME=www.bing.com
 ENV GQ_KEY=exampleconftest
@@ -26,8 +26,8 @@ RUN \
     \"Browser\":\"$GQ_BROWSER\",\n\
     \"Key\":\"$GQ_KEY\",\n\
     \"FastOpen\":$GQ_FAST_OPEN\n\
-}"\
-> /etc/goquiet/gqclient.json
+    }"\
+    > /etc/goquiet/gqclient.json
 
 EXPOSE $SS_LOCAL_PORT
 

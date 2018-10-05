@@ -1,6 +1,6 @@
-FROM imhang/shadowsocks-docker
+FROM imhang/shadowsocks-docker:latest
 
-ARG GOQUIET_VER=1.1.2
+ARG GOQUIET_VER=1.2.1
 
 ENV GQ_WEBSERVER_ADDRESS=1.1.1.1:443
 ENV GQ_KEY=exampleconftest
@@ -17,8 +17,8 @@ RUN \
     \"WebServerAddr\":\"$GQ_WEBSERVER_ADDRESS\",\n\
     \"Key\":\"$GQ_KEY\",\n\
     \"FastOpen\":$GQ_FAST_OPEN\n\
-}"\
-> /etc/goquiet/gqserver.json
+    }"\
+    > /etc/goquiet/gqserver.json
 
 ENTRYPOINT ss-server -p $SS_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT -d 1.1.1.1 -d 8.8.8.8 -u --fast-open --plugin /usr/local/bin/gq-server --plugin-opts "/etc/goquiet/gqserver.json" 
 
