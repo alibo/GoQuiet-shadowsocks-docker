@@ -4,7 +4,7 @@ ARG GOQUIET_VER=1.2.1
 
 ENV GQ_SERVER_NAME=www.bing.com
 ENV GQ_KEY=exampleconftest
-ENV GQ_FAST_OPEN=true
+ENV GQ_FAST_OPEN=false
 ENV GQ_BROWSER=chrome
 ENV GQ_TICKET_TIME_HINT=3600
 ENV GQ_LOCAL_PORT=1984
@@ -13,7 +13,7 @@ ENV GQ_SERVER_PORT=443
 
 RUN \
     apk add --no-cache wget \
-    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux-arm64-$GOQUIET_VER \
+    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux-386-$GOQUIET_VER \
     && chmod +x /usr/local/bin/gq-client
 
 RUN \

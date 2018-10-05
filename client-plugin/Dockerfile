@@ -4,7 +4,7 @@ ARG GOQUIET_VER=1.2.1
 
 ENV GQ_SERVER_NAME=www.bing.com
 ENV GQ_KEY=exampleconftest
-ENV GQ_FAST_OPEN=true
+ENV GQ_FAST_OPEN=false
 ENV GQ_BROWSER=chrome
 ENV GQ_TICKET_TIME_HINT=3600
 
@@ -15,7 +15,7 @@ ENV SS_LOCAL_PORT=1080
 
 RUN \
     apk add --no-cache wget \
-    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux-arm64-$GOQUIET_VER \
+    && wget -O /usr/local/bin/gq-client https://github.com/cbeuw/GoQuiet/releases/download/v$GOQUIET_VER/gq-client-linux-386-$GOQUIET_VER \
     && chmod +x /usr/local/bin/gq-client
 
 RUN \
@@ -31,4 +31,4 @@ RUN \
 
 EXPOSE $SS_LOCAL_PORT
 
-ENTRYPOINT ss-local -s $SS_SERVER_ADDRESS -p $SS_SERVER_PORT -b $SS_LOCAL_ADDRESS -l $SS_LOCAL_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT -u --fast-open --plugin /usr/local/bin/gq-client --plugin-opts "/etc/goquiet/gqclient.json" 
+ENTRYPOINT ss-local -s $SS_SERVER_ADDRESS -p $SS_SERVER_PORT -b $SS_LOCAL_ADDRESS -l $SS_LOCAL_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT -u --plugin /usr/local/bin/gq-client --plugin-opts "/etc/goquiet/gqclient.json" 
